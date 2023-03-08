@@ -174,7 +174,7 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
                 break;
 
             case Sensor.TYPE_GYROSCOPE:
-                mTextGyroscopeSensor.setText(getResources().getString(R.string.pressure_text, result));
+                mTextGyroscopeSensor.setText(getResources().getString(R.string.gyroscope_text, result));
                 break;
 
             case Sensor.TYPE_ACCELEROMETER:
