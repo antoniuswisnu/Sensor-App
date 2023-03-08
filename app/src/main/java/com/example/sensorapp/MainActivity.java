@@ -28,9 +28,6 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
     private TextView mTextAccelerometerSensor;
     private TextView mTextRotationSensor;
 
-
-
-
     private Sensor mlightSensor;
     private Sensor mProximitySensor;
     private Sensor mTemperatureSensor;
@@ -51,8 +48,12 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
         mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         List<Sensor> sensorList = mSensorManager.getSensorList(Sensor.TYPE_ALL);
 
+        StringBuilder sensorText = new StringBuilder();
+
         for (Sensor currentSensor : sensorList) {
-            Log.d("Sensor:", currentSensor.getName());
+//            Log.d("Sensor: ", currentSensor.getName());
+            sensorText.append(currentSensor.getName()).
+                    append(System.getProperty("line.separator"));
         }
 
         mTextLightSensor = findViewById(R.id.light_label);
@@ -63,7 +64,6 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
         mTextGyroscopeSensor = findViewById(R.id.gyroscope_label);
         mTextAccelerometerSensor = findViewById(R.id.accelerometer_label);
         mTextRotationSensor = findViewById(R.id.rotation_label);
-
 
         ll1 = findViewById(R.id.ll1);
 
@@ -184,7 +184,6 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
             case Sensor.TYPE_ROTATION_VECTOR:
                 mTextRotationSensor.setText(getResources().getString(R.string.rotation_text, result));
                 break;
-
 
             default:
                 break;
